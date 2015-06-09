@@ -6,11 +6,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% if session[:user_id] %>
+  <header>
+    <h3>Hello <%= Teacher.find_by_id(session[:user_id]).name %>!</h3>
+  </header>
+<% end %>
 <body>
+
+
 <p id="notice"><%= notice %></p>
 
 
 <%= yield %>
 
 </body>
+<footer>
+  <%= link_to 'Logout', session_logout_path %>
+</footer>
 </html>
