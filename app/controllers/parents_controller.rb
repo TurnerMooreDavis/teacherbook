@@ -70,7 +70,8 @@ class ParentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parent_params
-      params.require(:parent).permit(:name, :email)
+      params.require(:parent).permit(:name, :email, :teacher_id)
+
     end
 
     def check_login

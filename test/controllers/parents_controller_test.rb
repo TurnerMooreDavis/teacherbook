@@ -3,12 +3,19 @@ require 'test_helper'
 class ParentsControllerTest < ActionController::TestCase
   setup do
     @parent = parents(:one)
+    teacher = Teacher.create(email:"turner")
+    teacher.password = "davis"
+    teacher.save
+    Parent.create!(teacher_id: teacher.id, name: "Mrs. McGillicuddy")
+    Parent.create!(teacher_id: teachers(:one).id, name: "Mrs. Potatohead")
+    session[:user_id] = teacher.id
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:parents)
+    assert response.body =~ /McGillicuddy/
+    refute response.body =~ /Potatohead/
   end
 
   test "should get new" do

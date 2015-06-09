@@ -3,6 +3,7 @@ class CreateParents < ActiveRecord::Migration
     create_table :parents do |t|
       t.string :name
       t.string :email
+      t.integer :teacher_id
 
       t.timestamps null: false
     end

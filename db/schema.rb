@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150609170858) do
   create_table "parents", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150609170858) do
   create_table "teachers", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
+    t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
