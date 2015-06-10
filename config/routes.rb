@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'teachers/edit'
+
   get 'session/login'
 
   get 'session/logout'
@@ -6,6 +9,8 @@ Rails.application.routes.draw do
   post 'session/login'
 
   root 'session#login'
+
+  resources :teachers
 
   resources :parents
   # The priority is based upon order of creation: first created -> highest priority.
